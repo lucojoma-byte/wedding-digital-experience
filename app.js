@@ -48,6 +48,8 @@
       invitation.hidden = false;
       invitation.removeAttribute('hidden');
       window.scrollTo(0, 0);
+      invitation.setAttribute('tabindex', '-1');
+      invitation.focus({ preventScroll: true });
       renderCountdown();
     };
     window.setTimeout(reveal, window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 250);
@@ -71,9 +73,9 @@
 
   function boot() {
     const app = $('#app');
+    $('#open-invitation').addEventListener('click', openInvitation);
     app.classList.remove('js-pending');
     app.classList.add('js-ready');
-    $('#open-invitation').addEventListener('click', openInvitation);
     $('#music-control').addEventListener('click', () => window.open(config.music.externalUrl, '_blank', 'noopener,noreferrer'));
     renderContent();
     setupRsvp();

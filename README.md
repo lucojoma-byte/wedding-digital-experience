@@ -25,7 +25,9 @@ Está en `demoMode: true`: valida campos en el navegador y **no persiste ni tran
 
 ## Música
 
-No incluye ni descarga música comercial. El control abre la página de YouTube configurada en `config.js`, en una pestaña nueva. No afirma reproducir audio dentro de la invitación. Si se obtiene un MP3 autorizado, se puede configurar `audioUrl` y agregar un reproductor HTML5.
+`audio/vals-mariachi.mp3` es una **composición original** (vals ranchero estilo mariachi, 88 s) creada para esta invitación y renderizada con el banco de sonidos [GeneralUser GS](https://github.com/mrbumpy409/GeneralUser-GS), cuya licencia permite usarlo libremente en grabaciones. No contiene música comercial.
+
+Suena al tocar «Abrir invitación» (los navegadores móviles exigen ese gesto) y se controla con el botón dorado. Para cambiarla, sustituir el archivo o editar `music.audioUrl` en `app.js`; si queda vacío o el archivo falla, el botón abre `music.externalUrl` en YouTube.
 
 ## Publicación estática
 

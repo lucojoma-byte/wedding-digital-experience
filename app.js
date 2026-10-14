@@ -9,11 +9,11 @@
     ],
     venue: { mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zapopan%2C%20Jalisco%2C%20Mexico' },
     music: {
-      title: 'Sabes una cosa — Luis Miguel (mariachi)',
+      title: 'Vals ranchero — mariachi (composición original)',
       externalUrl: 'https://www.youtube.com/watch?v=LUmKUDTz1oE',
       // Archivo de audio con derechos de uso (p. ej. 'audio/sabes-una-cosa.mp3').
       // Vacío = el botón «Música» abre YouTube. Con archivo = suena al abrir la invitación.
-      audioUrl: ''
+      audioUrl: 'audio/vals-mariachi.mp3'
     },
     gallery: [
       { src: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=80', alt: 'Arreglo floral blanco y champaña decorativo' },

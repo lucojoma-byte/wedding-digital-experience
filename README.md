@@ -25,7 +25,7 @@ Está en `demoMode: true`: valida campos en el navegador y **no persiste ni tran
 
 ## Música
 
-`audio/vals-mariachi.mp3` es una **composición original** (vals ranchero estilo mariachi, 88 s) creada para esta invitación y renderizada con el banco de sonidos [GeneralUser GS](https://github.com/mrbumpy409/GeneralUser-GS), cuya licencia permite usarlo libremente en grabaciones. No contiene música comercial.
+`audio/bachata-romantica.mp3` es una **composición original** (bachata romántica en Sol mayor con requinto, segunda guitarra, bajo, bongó y güira; 90 s) creada para esta invitación y renderizada con el banco de sonidos [GeneralUser GS](https://github.com/mrbumpy409/GeneralUser-GS), cuya licencia permite usarlo libremente en grabaciones. No contiene música comercial.
 
 Suena al tocar «Abrir invitación» (los navegadores móviles exigen ese gesto) y se controla con el botón dorado. Para cambiarla, sustituir el archivo o editar `music.audioUrl` en `app.js`; si queda vacío o el archivo falla, el botón abre `music.externalUrl` en YouTube.
 

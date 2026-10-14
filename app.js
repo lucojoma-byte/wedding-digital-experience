@@ -8,7 +8,13 @@
       { label: 'Recepción', time: '7:00 PM', icon: '⌂', description: 'Cena, brindis y celebración bajo el encanto de la hacienda.' }
     ],
     venue: { mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zapopan%2C%20Jalisco%2C%20Mexico' },
-    music: { externalUrl: 'https://www.youtube.com/watch?v=LUmKUDTz1oE' },
+    music: {
+      title: 'Sabes una cosa — Luis Miguel (mariachi)',
+      externalUrl: 'https://www.youtube.com/watch?v=LUmKUDTz1oE',
+      // Archivo de audio con derechos de uso (p. ej. 'audio/sabes-una-cosa.mp3').
+      // Vacío = el botón «Música» abre YouTube. Con archivo = suena al abrir la invitación.
+      audioUrl: ''
+    },
     gallery: [
       { src: 'https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=1200&q=80', alt: 'Arreglo floral blanco y champaña decorativo' },
       { src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80', alt: 'Mesa de boda decorativa' },
@@ -22,24 +28,62 @@
 
   function renderCountdown() {
     const seconds = Math.max(0, Math.floor((eventMs - Date.now()) / 1000));
-    const values = [
-      [Math.floor(seconds / 86400), 'Días'],
-      [Math.floor((seconds % 86400) / 3600), 'Horas'],
-      [Math.floor((seconds % 3600) / 60), 'Minutos'],
-      [seconds % 60, 'Segundos']
-    ];
-    $('#countdown').innerHTML = values.map(([number, label], index) => `<div class="time-box"><strong>${index === 0 ? number : pad(number)}</strong><span>${label}</span></div>`).join('');
+    const days = Math.floor(seconds / 86400);
+    const hours = Math.floor((seconds % 86400) / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    $('#countdown').innerHTML = `<p class="days"><strong>${days}</strong> ${days === 1 ? 'día' : 'días'}</p><p class="hms">${pad(hours)} h · ${pad(minutes)} min · ${pad(seconds % 60)} s</p>`;
   }
 
   function renderContent() {
     $('#schedule-cards').innerHTML = config.schedule.map((item) => `<article class="event-card"><div class="event-icon" aria-hidden="true">${item.icon}</div><h3>${item.label}</h3><div class="event-time">${item.time}</div><p>${item.description}</p></article>`).join('');
     $('#gallery').innerHTML = config.gallery.map((image) => `<figure><img src="${image.src}" alt="${image.alt}" loading="lazy"></figure>`).join('');
     $('#maps-link').href = config.venue.mapsUrl;
-    $('#whatsapp-share').href = `https://wa.me/?text=${encodeURIComponent(`Acompáñanos a celebrar la boda de ${config.couple.bride} y ${config.couple.groom}. ${window.location.href}`)}`;
+    const shareUrl = `https://wa.me/?text=${encodeURIComponent(`Acompáñanos a celebrar la boda de ${config.couple.bride} y ${config.couple.groom}. ${window.location.href}`)}`;
+    document.querySelectorAll('[data-share="whatsapp"]').forEach((link) => { link.href = shareUrl; });
+  }
+
+  // ---- Música: suena al tocar «Abrir invitación» (gesto del usuario) y se controla con «Música». ----
+  let audio = null;
+
+  function setMusicUi(playing) {
+    const button = $('#music-control');
+    button.setAttribute('aria-pressed', String(playing));
+    button.setAttribute('aria-label', playing ? 'Pausar música' : 'Reproducir música');
+    button.querySelector('.music-label').textContent = playing ? 'Pausar' : 'Música';
+    const bar = button.closest('.music-bar');
+    if (bar) bar.classList.toggle('is-playing', playing);
+  }
+
+  function playMusic() {
+    if (!audio) return;
+    const attempt = audio.play();
+    if (attempt && typeof attempt.catch === 'function') attempt.catch(() => setMusicUi(false));
+  }
+
+  function setupMusic() {
+    const button = $('#music-control');
+    if (!config.music.audioUrl) {
+      button.addEventListener('click', () => window.open(config.music.externalUrl, '_blank', 'noopener,noreferrer'));
+      return;
+    }
+    audio = new Audio();
+    audio.src = config.music.audioUrl;
+    audio.loop = true;
+    audio.preload = 'none';
+    audio.addEventListener('play', () => setMusicUi(true));
+    audio.addEventListener('pause', () => setMusicUi(false));
+    audio.addEventListener('error', () => setMusicUi(false));
+    setMusicUi(false);
+    button.addEventListener('click', () => {
+      if (audio.error) { window.open(config.music.externalUrl, '_blank', 'noopener,noreferrer'); return; }
+      if (audio.paused) playMusic(); else audio.pause();
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden && !audio.paused) audio.pause(); });
   }
 
   function openInvitation(event) {
     if (event) event.preventDefault();
+    playMusic(); // dentro del toque: requisito de iOS/Android para audio con sonido
     const cover = $('#cover');
     const invitation = $('#invitation');
     cover.classList.add('is-open');
@@ -76,7 +120,7 @@
     $('#open-invitation').addEventListener('click', openInvitation);
     app.classList.remove('js-pending');
     app.classList.add('js-ready');
-    $('#music-control').addEventListener('click', () => window.open(config.music.externalUrl, '_blank', 'noopener,noreferrer'));
+    setupMusic();
     renderContent();
     setupRsvp();
     renderCountdown();

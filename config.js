@@ -20,7 +20,7 @@ export const invitationConfig = {
   message: 'Hay momentos que se vuelven eternos cuando los compartimos con quienes amamos. Nos encantaría que formaras parte del comienzo de nuestra historia.',
   closing: '¡Esperamos compartir este día contigo!',
   music: {
-    title: 'Sabes una cosa — Luis Miguel',
+    title: 'Sabes una cosa — Luis Miguel (mariachi)',
     mode: 'external-official-link',
     externalUrl: 'https://www.youtube.com/watch?v=LUmKUDTz1oE',
     audioUrl: ''

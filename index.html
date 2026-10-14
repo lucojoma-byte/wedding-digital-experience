@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="description" content="Invitación digital demostrativa para la boda de Sofía Martínez y Alejandro Rivera." />
-  <meta name="theme-color" content="#24382b" />
+  <meta name="theme-color" content="#f6eadb" />
   <meta name="robots" content="noindex, nofollow" />
   <meta property="og:title" content="Sofía & Alejandro — ¡Nos casamos!" />
   <meta property="og:description" content="Una invitación digital demostrativa." />
@@ -13,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=fix-tap-1" />
+  <link rel="stylesheet" href="styles.css?v=beige-1" />
 </head>
 <body>
   <a class="skip-link" href="#invitation">Saltar al contenido</a>
@@ -36,19 +36,79 @@
     </section>
 
     <section id="invitation" hidden>
-      <header class="hero section-shell" id="inicio">
-        <button id="music-control" class="music-control" type="button" aria-pressed="false" aria-label="Abrir música oficial en YouTube"><span aria-hidden="true">♫</span><span class="music-label">Música</span></button>
-        <div class="hero-art" role="img" aria-label="Fotografía decorativa de celebración floral"></div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-          <p class="monogram" aria-label="Iniciales S y A">S <span>&</span> A</p>
-          <p class="eyebrow light">Con la bendición de nuestras familias</p>
-          <h1 id="cover-heading"><span>Sofía</span><em>&</em><span>Alejandro</span></h1>
-          <p class="casamos">¡Nos casamos!</p>
-          <div class="gold-rule" aria-hidden="true">✦</div>
-          <p class="date-line">Sábado 20 de marzo de 2027</p>
+      <div class="invite-sheet">
+        <header class="invite-hero" id="inicio">
+          <img class="deco deco-tl" src="img/flores-sup-izq.jpg" alt="" aria-hidden="true" width="205" height="468" />
+          <img class="deco deco-tr" src="img/campanario.jpg" alt="" aria-hidden="true" width="189" height="468" />
+          <div class="invite-hero-inner">
+            <div class="wreath" role="img" aria-label="Iniciales S y A">
+              <svg viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"><path d="M60 112C31 112 10 91 10 62S31 10 58 9"/><path d="M60 112c29 0 50-21 50-50S89 10 62 9"/><g fill="currentColor" fill-opacity=".18"><path d="M14 80c-7-2-10-8-9-14 7 2 10 8 9 14z"/><path d="M11 60c-6-4-7-11-4-16 6 4 7 11 4 16z"/><path d="M16 40c-4-6-3-12 1-16 4 5 3 12-1 16z"/><path d="M28 24c0-7 4-12 10-13 0 7-4 12-10 13z"/><path d="M27 99c-7 1-12-3-14-9 7-1 12 3 14 9z"/><path d="M106 80c7-2 10-8 9-14-7 2-10 8-9 14z"/><path d="M109 60c6-4 7-11 4-16-6 4-7 11-4 16z"/><path d="M104 40c4-6 3-12-1-16-4 5-3 12 1 16z"/><path d="M92 24c0-7-4-12-10-13 0 7 4 12 10 13z"/><path d="M93 99c7 1 12-3 14-9-7-1-12 3-14 9z"/></g></g></svg>
+              <span class="wreath-letters" aria-hidden="true">S<em>&amp;</em>A</span>
+            </div>
+            <h1 id="cover-heading" class="names"><span>Sofía Martínez</span><em>&amp;</em><span>Alejandro Rivera</span></h1>
+            <p class="nos-casamos">Nos casamos</p>
+            <div class="heart-rule" aria-hidden="true"><span>♡</span></div>
+          </div>
+        </header>
+
+        <section class="card info-strip" aria-label="Fecha y horarios">
+          <div class="info-item"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="7" width="24" height="21" rx="3"/><path d="M4 13h24M10 4v6M22 4v6M10 18h3M15 18h3M20 18h3M10 23h3M15 23h3"/></svg><p><span class="info-label">Fecha</span>Sábado 20 de marzo de 2027</p></div>
+          <div class="info-item"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="20" r="8"/><path d="M12 7l4-4 4 4-4 5z"/></svg><p><span class="info-label">Ceremonia</span>5:00 PM</p></div>
+          <div class="info-item"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 6h7l-1 8a3 3 0 0 1-5 0zM10.5 17v9M7 27h7M18 6h7l-1 8a3 3 0 0 1-5 0zM21.5 17v9M18 27h7M14 3l1-2M18 3l-1-2"/></svg><p><span class="info-label">Recepción</span>7:00 PM</p></div>
+        </section>
+
+        <section class="venue-card" aria-labelledby="venue-heading">
+          <img src="img/hacienda.jpg" alt="Patio de hacienda iluminado con faroles y una fuente (imagen ilustrativa)" width="377" height="320" />
+          <div class="venue-text">
+            <svg class="ico ico-pin" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-9.3 9-16a9 9 0 0 0-18 0c0 6.7 9 16 9 16z"/><circle cx="16" cy="13" r="3.2"/></svg>
+            <div><h2 id="venue-heading">Hacienda Los Olivos</h2><p>Zapopan, Jalisco</p></div>
+          </div>
+        </section>
+        <p class="demo-reference">Ubicación de referencia demostrativa — no corresponde al lugar del evento.</p>
+
+        <section class="card music-bar" aria-label="Música de la invitación">
+          <svg class="ico ico-note" viewBox="0 0 32 32" aria-hidden="true"><path d="M12 24V6l14-3v18"/><circle cx="8.5" cy="24" r="3.5"/><circle cx="22.5" cy="21" r="3.5"/></svg>
+          <p class="music-title"><span>Música:</span> <em>“Sabes una cosa”</em> · <em>Mariachi</em></p>
+          <button id="music-control" class="play-btn" type="button" aria-pressed="false" aria-label="Abrir música oficial en YouTube">
+            <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+            <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg>
+            <span class="music-label sr-only">Música</span>
+          </button>
+          <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </section>
+
+        <section class="countdown-card" aria-labelledby="countdown-heading">
+          <div class="sprig sprig-l" aria-hidden="true"></div>
+          <div class="countdown-box">
+            <h2 id="countdown-heading">Faltan</h2>
+            <div id="countdown" class="countdown" aria-live="off"><p class="days">Muy pronto</p></div>
+            <div class="heart-rule small" aria-hidden="true"><span>♡</span></div>
+          </div>
+          <div class="sprig sprig-r" aria-hidden="true"></div>
+        </section>
+
+        <div class="cta-row">
+          <a id="maps-link" class="btn btn-olive" href="https://www.google.com/maps/search/?api=1&amp;query=Zapopan%2C%20Jalisco%2C%20Mexico" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-9.3 9-16a9 9 0 0 0-18 0c0 6.7 9 16 9 16z"/><circle cx="16" cy="13" r="3.2"/></svg><span>Ver ubicación</span><span class="chev" aria-hidden="true">›</span></a>
+          <a class="btn btn-gold" href="#rsvp"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h22v15H13l-6 5v-5H5z"/><path d="M10 12h12M10 16h8"/></svg><span>Confirmar asistencia</span><span class="chev" aria-hidden="true">›</span></a>
         </div>
-      </header>
+
+        <div class="detail-row">
+          <div class="detail"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h22v15H13l-6 5v-5H5z"/><path d="M10 12h12M10 16h8"/></svg><p>Confirma antes del<br /><strong>1 de marzo de 2027</strong></p></div>
+          <a class="detail detail-link" data-share="whatsapp" target="_blank" rel="noopener noreferrer"><svg class="ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 26l1.6-5A11 11 0 1 1 11 24.4z"/><path d="M12 11c0 5 4 9 9 9l1.5-2.5-3-1.5-1.5 1.5c-1.5-.5-3-2-3.5-3.5l1.5-1.5-1.5-3z"/></svg><p>Compártela por<br /><strong>WhatsApp</strong></p></a>
+        </div>
+
+        <div class="duo">
+          <div class="card mini"><svg class="ico ico-lg" viewBox="0 0 40 32" aria-hidden="true"><circle cx="11" cy="8" r="4"/><circle cx="29" cy="8" r="4"/><circle cx="20" cy="15" r="3"/><path d="M4 30v-9a7 7 0 0 1 14 0M22 30v-9a7 7 0 0 1 14 0M15 30v-5a5 5 0 0 1 10 0v5"/></svg><p>Con la bendición<br />de nuestras familias</p><div class="heart-rule small" aria-hidden="true"><span>♡</span></div></div>
+          <div class="card mini"><svg class="ico ico-lg" viewBox="0 0 40 32" aria-hidden="true"><path d="M8 3h5l-1 6 5 20H3l5-20zM8 3l2.5 4L13 3"/><path d="M27 3h6l3 5-2 22h-8l-2-22zM28 3l2 6 2-6M30 9v19"/></svg><p>Código de vestimenta:<br /><strong>Formal</strong></p><div class="heart-rule small" aria-hidden="true"><span>♡</span></div></div>
+        </div>
+
+        <div class="script-close">
+          <img class="deco deco-bl" src="img/flores-inf-izq.jpg" alt="" aria-hidden="true" width="145" height="155" />
+          <img class="deco deco-br" src="img/flores-inf-der.jpg" alt="" aria-hidden="true" width="141" height="155" />
+          <p class="script-line">¡Esperamos compartir este día contigo!</p>
+          <div class="heart-rule" aria-hidden="true"><span>♥</span></div>
+        </div>
+      </div>
 
       <section class="section-shell intro" aria-labelledby="intro-heading">
         <p class="floral-mark">❦</p>
@@ -56,33 +116,22 @@
         <p>Hay momentos que se vuelven eternos cuando los compartimos con quienes amamos. Nos encantaría que formaras parte del comienzo de nuestra historia.</p>
       </section>
 
-      <section class="section-shell countdown-section" aria-labelledby="countdown-heading">
-        <p class="eyebrow">Faltan</p><h2 id="countdown-heading">Días para celebrar</h2>
-        <div id="countdown" class="countdown" aria-live="polite"></div>
-      </section>
-
       <section class="section-shell agenda" aria-labelledby="agenda-heading">
         <p class="eyebrow">El gran día</p><h2 id="agenda-heading">Ceremonia & recepción</h2>
         <div id="schedule-cards" class="cards"></div>
-      </section>
-
-      <section class="section-shell venue" aria-labelledby="venue-heading">
-        <div class="venue-inner"><p class="eyebrow">El lugar</p><h2 id="venue-heading">Hacienda Los Olivos</h2><p>Zapopan, Jalisco</p><p class="demo-reference">Ubicación de referencia demostrativa — no corresponde al lugar del evento.</p><a id="maps-link" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Ver referencia en Google Maps <span aria-hidden="true">↗</span></a></div>
       </section>
 
       <section class="section-shell gallery-section" aria-labelledby="gallery-heading">
         <p class="eyebrow">Momentos por venir</p><h2 id="gallery-heading">Un día para recordar</h2><p class="gallery-note">Imágenes decorativas autorizadas vía Unsplash; serán sustituidas por fotografías reales de los novios.</p><div id="gallery" class="gallery"></div>
       </section>
 
-      <section class="section-shell attire" aria-labelledby="attire-heading"><p class="eyebrow">Código de vestimenta</p><p class="attire-icon" aria-hidden="true">♢</p><h2 id="attire-heading">Formal</h2><p>Una noche especial merece elegancia.</p></section>
+      <section id="rsvp" class="section-shell rsvp" aria-labelledby="rsvp-heading"><p class="eyebrow">Acompáñanos</p><h2 id="rsvp-heading">Confirmación de asistencia</h2><p class="deadline">Agradeceremos tu respuesta antes del <strong>1 de marzo de 2027</strong>.</p><div class="demo-banner"><strong>Modo demo:</strong> este formulario valida datos en tu navegador, pero no guarda ni envía confirmaciones a un servidor.</div><form id="rsvp-form" novalidate><label>Nombre del invitado<input name="name" type="text" autocomplete="name" required /></label><p class="field-error" data-error="name"></p><label>Número de asistentes<input name="guests" type="number" min="1" max="12" inputmode="numeric" required /></label><p class="field-error" data-error="guests"></p><fieldset><legend>¿Podrás acompañarnos?</legend><label class="radio"><input type="radio" name="attendance" value="yes" required /> Sí, con gusto</label><label class="radio"><input type="radio" name="attendance" value="no" /> No podré acompañarlos</label></fieldset><p class="field-error" data-error="attendance"></p><label>Comentarios opcionales<textarea name="comments" rows="4" maxlength="500" placeholder="Déjanos un mensaje…"></textarea></label><button class="btn btn-primary" type="submit">Validar respuesta</button><p id="rsvp-result" class="rsvp-result" role="status"></p></form><details class="organizer-access"><summary>Acceso privado para organizador (preparado)</summary><p>La versión conectada requerirá autenticación y una base de datos con reglas de acceso. No se incluye ningún acceso ni credencial en esta demostración.</p></details></section>
 
-      <section class="section-shell rsvp" aria-labelledby="rsvp-heading"><p class="eyebrow">Acompáñanos</p><h2 id="rsvp-heading">Confirmación de asistencia</h2><p class="deadline">Agradeceremos tu respuesta antes del <strong>1 de marzo de 2027</strong>.</p><div class="demo-banner"><strong>Modo demo:</strong> este formulario valida datos en tu navegador, pero no guarda ni envía confirmaciones a un servidor.</div><form id="rsvp-form" novalidate><label>Nombre del invitado<input name="name" type="text" autocomplete="name" required /></label><p class="field-error" data-error="name"></p><label>Número de asistentes<input name="guests" type="number" min="1" max="12" inputmode="numeric" required /></label><p class="field-error" data-error="guests"></p><fieldset><legend>¿Podrás acompañarnos?</legend><label class="radio"><input type="radio" name="attendance" value="yes" required /> Sí, con gusto</label><label class="radio"><input type="radio" name="attendance" value="no" /> No podré acompañarlos</label></fieldset><p class="field-error" data-error="attendance"></p><label>Comentarios opcionales<textarea name="comments" rows="4" maxlength="500" placeholder="Déjanos un mensaje…"></textarea></label><button class="btn btn-primary" type="submit">Validar respuesta</button><p id="rsvp-result" class="rsvp-result" role="status"></p></form><details class="organizer-access"><summary>Acceso privado para organizador (preparado)</summary><p>La versión conectada requerirá autenticación y una base de datos con reglas de acceso. No se incluye ningún acceso ni credencial en esta demostración.</p></details></section>
-
-      <section class="section-shell share" aria-labelledby="share-heading"><p class="eyebrow">Compártela</p><h2 id="share-heading">Celebremos juntos</h2><p>Envía esta invitación a quien quieras tener cerca.</p><a id="whatsapp-share" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Compartir por WhatsApp <span aria-hidden="true">↗</span></a></section>
+      <section class="section-shell share" aria-labelledby="share-heading"><p class="eyebrow">Compártela</p><h2 id="share-heading">Celebremos juntos</h2><p>Envía esta invitación a quien quieras tener cerca.</p><a id="whatsapp-share" data-share="whatsapp" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Compartir por WhatsApp <span aria-hidden="true">↗</span></a></section>
 
       <footer class="closing"><div class="closing-inner"><p class="floral-mark light">❦</p><p>Con cariño</p><h2>Sofía <em>&</em> Alejandro</h2><p class="closing-message">¡Esperamos compartir este día contigo!</p><p class="demo-footer">Demostración web · Datos y ubicación ficticios</p></div></footer>
     </section>
   </main>
-  <script src="app.js?v=fix-tap-1" defer></script>
+  <script src="app.js?v=beige-1" defer></script>
 </body>
 </html>

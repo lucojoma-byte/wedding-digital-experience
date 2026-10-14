@@ -3,6 +3,9 @@ import { eventState, timeRemaining, validateRsvp, whatsappUrl } from './logic.js
 
 const $ = (selector) => document.querySelector(selector);
 const state = eventState(Date.now(), config.dateISO, config.expirationISO);
+
+// Fecha de respaldo: evita que una fecha local incorrecta del dispositivo bloquee una demo futura.
+const previewGrace = new URLSearchParams(window.location.search).get('preview') === '1';
 const cover = $('#cover');
 const invitation = $('#invitation');
 
@@ -58,7 +61,7 @@ function openInvitation() {
   }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 10 : 850);
 }
 function boot() {
-  if (state === 'expired') {
+  if (state === 'expired' && !previewGrace) {
     $('#expired-screen').hidden = false;
     cover.hidden = true;
     return;

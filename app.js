@@ -1,13 +1,25 @@
 (() => {
   'use strict';
   const config = {
-    couple: { bride: 'Sofía Martínez', groom: 'Alejandro Rivera' },
-    dateISO: '2027-03-20T17:00:00-06:00',
+    couple: { bride: 'Sofía Navarro', groom: 'Carlos Villarreal' },
+    dateISO: '2026-11-14T17:00:00-06:00',
+    ceremony: {
+      name: 'Parroquia de San Francisco de Asís',
+      city: 'Chapala, Jal.',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parroquia%20de%20San%20Francisco%20de%20As%C3%ADs%2C%20Chapala%2C%20Jalisco'
+    },
+    reception: {
+      name: 'Terraza Las Brisas',
+      city: 'Ribera de Chapala',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Terraza%20Las%20Brisas%2C%20Ribera%20de%20Chapala%2C%20Jalisco'
+    },
     schedule: [
-      { label: 'Ceremonia', time: '5:00 PM', icon: '✦', description: 'Una ceremonia íntima para celebrar el comienzo de nuestra historia.' },
-      { label: 'Recepción', time: '7:00 PM', icon: '⌂', description: 'Cena, brindis y celebración bajo el encanto de la hacienda.' }
+      { label: 'Ceremonia', time: '5:00 PM', icon: '✦', description: 'Parroquia de San Francisco de Asís · Chapala, Jal.' },
+      { label: 'Recepción', time: '7:00 PM', icon: '⌂', description: 'Terraza Las Brisas · Ribera de Chapala.' }
     ],
-    venue: { mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Zapopan%2C%20Jalisco%2C%20Mexico' },
+    attire: 'Formal Guayabera / Vestido Cóctel',
+    rsvpWhatsApp: '5213312345678',
+    venue: { mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Parroquia%20de%20San%20Francisco%20de%20As%C3%ADs%2C%20Chapala%2C%20Jalisco' },
     music: {
       title: 'Bachata romántica (composición original)',
       externalUrl: 'https://www.youtube.com/watch?v=LUmKUDTz1oE',
@@ -35,11 +47,32 @@
   }
 
   function renderContent() {
+    const fullNames = `${config.couple.bride} & ${config.couple.groom}`;
+    const initials = `${config.couple.bride.trim().charAt(0)}&${config.couple.groom.trim().charAt(0)}`;
+    const eventDate = new Intl.DateTimeFormat('es-MX', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'America/Mexico_City' }).format(new Date(config.dateISO));
+    const title = `${fullNames} — ¡Nos casamos!`;
+
+    document.title = title;
+    document.querySelector('meta[name="description"]').content = `Invitación digital demostrativa para la boda de ${fullNames}.`;
+    document.querySelector('meta[property="og:title"]').content = title;
+    document.querySelectorAll('.seal, .wreath-letters').forEach((element) => { element.innerHTML = `${initials.charAt(0)}<em>&amp;</em>${initials.charAt(2)}`; });
+    document.querySelector('.wreath').setAttribute('aria-label', `Iniciales ${initials.charAt(0)} y ${initials.charAt(2)}`);
+    document.querySelectorAll('.names, .closing h2').forEach((element) => { element.innerHTML = `<span>${config.couple.bride}</span><em>&amp;</em><span>${config.couple.groom}</span>`; });
+    document.querySelector('.info-strip .info-item:first-child p').innerHTML = `<span class="info-label">Fecha</span>${eventDate}`;
+    document.querySelector('.info-strip .info-item:nth-child(2) p').innerHTML = `<span class="info-label">Ceremonia</span>5:00 PM`;
+    document.querySelector('.info-strip .info-item:nth-child(3) p').innerHTML = `<span class="info-label">Recepción</span>7:00 PM`;
+    document.querySelector('#venue-heading').textContent = config.ceremony.name;
+    document.querySelector('.venue-text p').textContent = config.ceremony.city;
+    document.querySelector('.detail-row .detail:first-child p').innerHTML = `Ceremonia en<br /><strong>${config.ceremony.name}</strong>`;
+    document.querySelector('.duo .mini:nth-child(2) p').innerHTML = `Código de vestimenta:<br /><strong>${config.attire}</strong>`;
+
     $('#schedule-cards').innerHTML = config.schedule.map((item) => `<article class="event-card"><div class="event-icon" aria-hidden="true">${item.icon}</div><h3>${item.label}</h3><div class="event-time">${item.time}</div><p>${item.description}</p></article>`).join('');
     $('#gallery').innerHTML = config.gallery.map((image) => `<figure><img src="${image.src}" alt="${image.alt}" loading="lazy"></figure>`).join('');
-    $('#maps-link').href = config.venue.mapsUrl;
-    const shareUrl = `https://wa.me/?text=${encodeURIComponent(`Acompáñanos a celebrar la boda de ${config.couple.bride} y ${config.couple.groom}. ${window.location.href}`)}`;
-    document.querySelectorAll('[data-share="whatsapp"]').forEach((link) => { link.href = shareUrl; });
+    $('#maps-link').href = config.ceremony.mapsUrl;
+    const shareText = `Acompáñanos a celebrar la boda de ${fullNames}. Ceremonia: ${config.ceremony.name}, ${config.ceremony.city}. Recepción: ${config.reception.name}, ${config.reception.city}.`;
+    document.querySelectorAll('[data-share="whatsapp"]').forEach((link) => {
+      link.href = `https://wa.me/${config.rsvpWhatsApp}?text=${encodeURIComponent(shareText)}`;
+    });
   }
 
   // ---- Música: suena al tocar «Abrir invitación» (gesto del usuario) y se controla con «Música». ----

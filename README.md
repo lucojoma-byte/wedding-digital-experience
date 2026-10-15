@@ -12,10 +12,40 @@ npm run serve
 
 ## Reutilizar una invitación
 
-Editar únicamente `config.js`:
-- `couple`, `dateISO`, `timeZone`, `expirationISO`
-- `venue`, `schedule`, `attire`, textos y `gallery`
-- `music.externalUrl` o, cuando exista licencia, `music.audioUrl`
+### Archivo único de datos finales
+
+La fuente canónica para personalizar la invitación es:
+
+```text
+config.js
+```
+
+Actualizar ahí: `couple`, `dateISO`, `timeZone`, `expirationISO`, `venue`, `schedule`, `attire`, textos, `gallery` y `music`.
+
+> **Importante — estado actual del machote:** la prueba local de datos ficticios se hizo en `app.js`. Antes de una publicación real, mover o reflejar los datos aprobados desde `config.js` hacia `app.js`, ya que la interfaz actual carga `app.js` directamente. No publicar hasta validar el render final en navegador.
+
+### Fotografías de los novios
+
+Crear y usar esta carpeta:
+
+```text
+img/novios/
+```
+
+Ejemplo de reemplazo en `app.js`, dentro de `gallery`:
+
+```js
+{ src: 'img/novios/sofia-carlos-01.jpg', alt: 'Sofía y Carlos' }
+```
+
+**Dimensiones recomendadas:** archivos JPG o WebP de **1600 × 1200 px (relación 4:3)**, con el rostro o elemento importante dentro de la zona central. El layout aplica recorte proporcional (`object-fit: cover`) y no estira las imágenes; para fotos verticales, usar mínimo **1200 × 1600 px** y revisar el recorte en móvil.
+
+Los elementos decorativos actuales se reemplazan directamente en `index.html`:
+
+- `img/flores-sup-izq.jpg` — flor superior izquierda.
+- `img/campanario.jpg` — imagen lateral superior.
+- `img/hacienda.jpg` — imagen principal de ubicación.
+- `img/flores-inf-izq.jpg` y `img/flores-inf-der.jpg` — flores inferiores.
 
 La plantilla implementada es `eventType: 'wedding'`. La arquitectura deja el contenido centralizado para posteriores plantillas de XV años, bautizos y cumpleaños, sin construirlas aún.
 
